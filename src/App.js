@@ -5,6 +5,7 @@ import Todo from './classes/Todo';
 import AuthForm from './classes/Auth';
 import AuthTodo from './classes/AuthTodo';
 import Lifting from './classes/Lifting';
+import ScreenRouter from './Router';
 
 const ItemList = [
   { id: 1, title: 'Book', content: 'This is Book!' },
@@ -32,13 +33,14 @@ class App extends Component {
         {/* <List ItemList={ItemList} /> */}
         {/* <NameForm /> */}
         {/* <Todo /> */}
-        {
+        {/* {
           this.state.isLogin ?
             <AuthTodo email={this.state.email} />
           :
             <AuthForm handleChange={this.handleChange} />
-        }
+        } */}
         {/* <Lifting /> */}
+        <ScreenRouter />
       </div>
     );
   }

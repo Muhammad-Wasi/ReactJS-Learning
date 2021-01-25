@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class AuthTodo extends Component {
+class AuthTodo extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,8 +14,9 @@ export default class AuthTodo extends Component {
     }
 
     componentDidMount() {
-        console.log("Props => ", this.props);
-        this.setState({ email: this.props.email }, () => {
+        console.log("Todo Props => ", this.props);
+        let email = this.props.history.location.state.email;
+        this.setState({ email: email }, () => {
             this.getTodos()
         });
     }
@@ -142,3 +144,4 @@ export default class AuthTodo extends Component {
     }
 }
 
+export default withRouter(AuthTodo);

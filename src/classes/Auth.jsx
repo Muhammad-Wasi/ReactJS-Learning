@@ -1,14 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class AuthForm extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: '',
             email: '',
             password: ''
         };
-
+        console.log("Props => ", props);
     }
     handeInput(val, prop) {
         this.setState({ [prop]: val })
@@ -23,26 +24,27 @@ class AuthForm extends React.Component {
         const { name, email, password } = this.state;
         console.log("State", { name, email, password })
         let users = localStorage.getItem('users');
-        if(users){
+        if (users) {
             let parseUsers = JSON.parse(users);
             let isFind = parseUsers.find(item => item.email === email);
-            if(isFind){
-                if(isFind.password === password){
+            if (isFind) {
+                if (isFind.password === password) {
                     alert("Login Successfullly!");
-                    this.props.handleChange(email);
+                    // this.props.handleChange(email);
+                    this.props.history.push('/todo', { name, email, password })
                 }
-                else{
+                else {
                     alert("Invalid email/password!")
                 }
             }
-            else{
-                localStorage.setItem('users', JSON.stringify([...parseUsers, {name, email, password}]));
+            else {
+                localStorage.setItem('users', JSON.stringify([...parseUsers, { name, email, password }]));
             }
         }
-        else{
-            localStorage.setItem('users', JSON.stringify([{name, email, password}]));
+        else {
+            localStorage.setItem('users', JSON.stringify([{ name, email, password }]));
         }
-    }    
+    }
 
     render() {
         return (
@@ -67,4 +69,4 @@ class AuthForm extends React.Component {
     }
 }
 
-export default AuthForm;
+export default withRouter(AuthForm);
