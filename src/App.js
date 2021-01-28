@@ -6,6 +6,7 @@ import AuthForm from './classes/Auth';
 import AuthTodo from './classes/AuthTodo';
 import Lifting from './classes/Lifting';
 import ScreenRouter from './Router';
+import Form from './classes/css/form';
 
 const ItemList = [
   { id: 1, title: 'Book', content: 'This is Book!' },
@@ -40,7 +41,8 @@ class App extends Component {
             <AuthForm handleChange={this.handleChange} />
         } */}
         {/* <Lifting /> */}
-        <ScreenRouter />
+        {/* <ScreenRouter /> */}
+        <Form />
       </div>
     );
   }
