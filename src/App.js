@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 // import List from './classes/ListAndKeys';
-import NameForm from './classes/Forms';
-import Todo from './classes/Todo';
-import AuthForm from './classes/Auth';
-import AuthTodo from './classes/AuthTodo';
-import Lifting from './classes/Lifting';
-import ScreenRouter from './Router';
-import Form from './classes/css/form';
+// import NameForm from './classes/Forms';
+// import Todo from './classes/Todo';
+// import AuthForm from './classes/Auth';
+// import AuthTodo from './classes/AuthTodo';
+// import Lifting from './classes/Lifting';
+// import ScreenRouter from './Router';
+// import Form from './classes/css/form';
+import Cards from './classes/CardWithFilter/Page/Cards';
 
 const ItemList = [
   { id: 1, title: 'Book', content: 'This is Book!' },
@@ -42,7 +43,8 @@ class App extends Component {
         } */}
         {/* <Lifting /> */}
         {/* <ScreenRouter /> */}
-        <Form />
+        {/* <Form /> */}
+        <Cards />
       </div>
     );
   }
